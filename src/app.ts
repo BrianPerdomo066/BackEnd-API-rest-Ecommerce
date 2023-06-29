@@ -1,5 +1,5 @@
-import express { Request, Response} from "express";
-
+import express, { Request, Response } from "express";
+import main from './routes/index'
 
 
 const app = express();
@@ -20,6 +20,12 @@ app.get( '/home', ( req: Request, res: Response ) => {
     res.send( `<h1>${namePage}</h1>` );
 });
 
+
+app.use ( '/api',)
+
+
+
 app.listen( 3000, () => {
     console.log ( 'servidor lanzado el puerto 3000' )
-})
+});
+

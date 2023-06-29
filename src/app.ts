@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
-import main from './routes/index'
+
+import routeMain from './routes/index'
 
 
 const app = express();
@@ -21,7 +22,7 @@ app.get( '/home', ( req: Request, res: Response ) => {
 });
 
 
-app.use ( '/api',)
+app.use ( '/',routeMain);
 
 
 

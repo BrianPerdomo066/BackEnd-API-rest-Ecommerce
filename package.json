@@ -2,9 +2,9 @@
   "name": "bot-backend",
   "version": "1.0.0",
   "description": "BackEnd: API rest para un ecommerce",
-  "main": "index.js",
+  "main": "app.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon ./src/app.ts"
   },
   "keywords": [
     "Node"

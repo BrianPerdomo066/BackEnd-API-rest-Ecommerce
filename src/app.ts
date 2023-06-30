@@ -2,7 +2,7 @@ import 'dotenv/config';
 import express, { Request, Response } from "express";
 
 import routeMain from './routes/index.route'
-// import  db  from "./config/mongo.config";
+import  db  from "./config/mongo.config";
 
 
 const app = express();
@@ -27,9 +27,9 @@ app.get( '/home', ( req: Request, res: Response ) => {
 
 app.use ( '/',routeMain);
 
-// db()
-//     .then( () => console.log (`mongoDB se conecto correctamente`));
-//     .catch( () => console.log ( `mongoDB sufre un problema de conexion`));
+db()
+    .then( () => console.log (`mongoDB se conecto correctamente`))
+    .catch( () => console.log ( `mongoDB sufre un problema de conexion`));
 
 
 app.listen( PORT, () => {

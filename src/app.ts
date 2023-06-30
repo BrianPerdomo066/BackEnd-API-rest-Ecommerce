@@ -1,8 +1,8 @@
 import 'dotenv/config';
 import express, { Request, Response } from "express";
 
-import routeMain from './routes/index'
-import  db  from "./config/mongo.config";
+import routeMain from './routes/index.route'
+// import  db  from "./config/mongo.config";
 
 
 const app = express();

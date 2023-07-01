@@ -1,24 +1,33 @@
 import { Request, Response } from "express";
+import productModel from "../models/products.model";
 
 
-function getProducts( req: Request, res: Response ) {
+async function getProducts( req: Request, res: Response ) {
     console.log( 'Obtengo todos los productos' );
+    res.send ( `Obtengo todos los productos`);
 }
 
-function getProduct( req: Request, res: Response ) {
+async function getProduct( req: Request, res: Response ) {
     console.log( 'Obtiene un producto por ID' );
+    res.send ( `Obtiene un producto por ID`);
 }
 
-function createProduct( req: Request, res: Response ) {
-    console.log( 'crea un producto' );
+async function createProduct( req: Request, res: Response ) {
+    const data = req.body;
+
+    const response = await productModel.create( data );
+
+    res.json( response );
 }
 
-function updateProduct( req: Request, res: Response ) {
+async function updateProduct( req: Request, res: Response ) {
     console.log( 'Actualisa un producto por ID' );
+    res.send ( `Actualisa un producto por ID`);
 }
 
-function deleteProduct( req: Request, res: Response ) {
+async function deleteProduct( req: Request, res: Response ) {
     console.log( 'Elimina un producto por ID' );
+    res.send ( `Elimina un producto por ID`);
 }
 
 

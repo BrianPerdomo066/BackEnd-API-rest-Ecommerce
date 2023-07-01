@@ -24,6 +24,8 @@ app.get( '/home', ( req: Request, res: Response ) => {
     res.send( `<h1>${namePage}</h1>` );
 });
 
+app.use( express.json());
+
 
 app.use ( '/',routeMain);
 

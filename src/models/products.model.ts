@@ -1,9 +1,4 @@
-class product {
-    name;
-    price;
-    descripcion;
 
-}
 
 import { Schema,model } from "mongoose";
 
@@ -28,8 +23,8 @@ const productSchema = new Schema(
     }
 );
 
-const productModel = model( 'product', productSchema );
+const ProductModel = model( 'product', productSchema );
 
 
-export default ;
+export default ProductModel; 
 

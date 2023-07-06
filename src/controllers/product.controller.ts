@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getAllProducts, inserproduct } from "../services/product.services";
+import { getAllProducts,getProductById, inserproduct, removeProductById} from "../services/product.services";
 
 
 async function getProducts( req: Request, res: Response ) {
@@ -22,17 +22,18 @@ async function getProducts( req: Request, res: Response ) {
 }
 
 async function getProduct( req: Request, res: Response ) {
+    const productId = req.params.id;
     try {
-        const productId = req.params.id;
+        
 
-        const response = await getProductById ( productId); 
+        const response = await getProductById ( productId ); 
 
         console.log( res );
         res.json({ response });
 
     }catch (error) {
 
-        console.log(`Error en extarcion de producto con id ${ ProductId }`)
+        console.log(`Error en extarcion de producto con id ${ productId }`)
 
         res.json({
             msg: 'ERROR_GET_PRODUCT_BY_ID'
@@ -63,8 +64,22 @@ async function updateProduct( req: Request, res: Response ) {
 }
 
 async function deleteProduct( req: Request, res: Response ) {
-    console.log( 'Elimina un producto por ID' );
-    res.send ( `Elimina un producto por ID`);
+    
+    const productId = req.params.id;
+
+    try{
+        const response = await removeProductById ( productId );
+
+        console.log( response );
+
+    }catch(error) {
+        console.log(`Error en extarcion de producto con id ${ productId }`)
+
+        res.json({
+            msg: 'ERROR_REMOVE_PRODUCT_BY_ID'
+        });
+
+    }
 }
 
 

@@ -15,7 +15,13 @@ const getProductById = async ( productId: string ) => {
     return await ProductModel.findOne ({ _id: productId});
 }
 
+const removeProductById = async ( productId: string ) => {
+    return await ProductModel.findOneAndRemove ({ _id: productId});
+}
+
 export {
     inserproduct,
-    getAllProducts
+    getAllProducts,
+    getProductById,
+    removeProductById
 }

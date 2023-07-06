@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-import { getAllProducts,getProductById, inserproduct, removeProductById} from "../services/product.services";
+import { Request, Response, response } from "express";
+import { getAllProducts,getProductById, inserproduct, removeProductById, updateProductById} from "../services/product.services";
 
 
 async function getProducts( req: Request, res: Response ) {
@@ -59,8 +59,24 @@ async function createProduct( req: Request, res: Response ) {
 }
 
 async function updateProduct( req: Request, res: Response ) {
-    console.log( 'Actualisa un producto por ID' );
-    res.send ( `Actualisa un producto por ID`);
+    
+    const { params: { id }} = req;
+    const { body } = req;          // si no se netiende hacerlo de la forma convecional
+
+    try{
+        const reponse = await updateProductById(id, body );
+
+        console.log( response );
+        res.json( response );
+    }catch(error) {
+        console.log(`Error en la actualiscion del producto con id ${ id }`)
+
+        res.json({
+            msg: 'ERROR_UPDATE_PRODUCT_BY_ID'
+        });
+
+
+    }
 }
 
 async function deleteProduct( req: Request, res: Response ) {

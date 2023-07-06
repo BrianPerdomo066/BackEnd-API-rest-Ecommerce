@@ -16,6 +16,22 @@ const productSchema = new Schema(
         },
         descripcion: {
             type: String
+        },
+        quantity: {
+            type: Number,
+            require: true
+        },
+        ranking: {
+            type: Number,
+            defaul: 0
+        },
+        category: {
+            type: String,
+            default: 'Uncategorized'
+        },
+        deliverydate:{
+            type: Date,
+            default: new Date
         }
     },                               
     {

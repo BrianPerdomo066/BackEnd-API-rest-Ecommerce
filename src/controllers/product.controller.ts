@@ -13,12 +13,19 @@ async function getProduct( req: Request, res: Response ) {
 }
 
 async function createProduct( req: Request, res: Response ) {
-    console.log( req.body )
 
-    const data = await inserproduct ( req.body );
+    try {
+        const data = await inserproduct ( req.body );
 
     console.log ( data );
     res.json( data  );
+
+    } catch ( error ) {
+        console.log( 'Error en la insercion del producto' );
+        res.json({
+            msg: 'ERROR_INSERT_PRODUCT'
+        });
+    }
 }
 
 async function updateProduct( req: Request, res: Response ) {

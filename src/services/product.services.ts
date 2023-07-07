@@ -21,7 +21,7 @@ const removeProductById = async ( productId: string ) => {
 
 const updateProductById = async ( productId: string, updateproduct: product ) => {
     return await ProductModel.findOneAndUpdate (
-        { _id: productId}
+        { _id: productId},
         updateproduct,
         { new: true} 
 

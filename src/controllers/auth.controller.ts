@@ -28,6 +28,7 @@ const login = async (req: Request, res: Response) => {
     try {
         const response = await loginUser( user );
         console.log( response );
+        res.json({ token: response });
         
     } catch (error) {
         console.log( 'Error en el registro de usuario' );

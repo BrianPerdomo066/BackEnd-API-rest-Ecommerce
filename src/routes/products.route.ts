@@ -5,12 +5,17 @@ import {  authentionUser } from "../middlewares/authentication.middleware";
 const router = Router();
 
 // http://localhost:3000/products
-router.get( '/', authentionUser, getProducts );
+router.get( '/',  getProducts );
 router.get( '/:id', getProduct );
-router.post ( '/', createProduct );
-router.put( '/:id', updateProduct);
-router.patch( '/:id', partialUpdateProduct);
-router.delete( '/:id', deleteProduct);
+router.post ( '/', authentionUser, createProduct );
+router.put( '/:id', authentionUser, updateProduct);
+router.patch( '/:id', authentionUser, partialUpdateProduct);
+router.delete( '/:id', authentionUser, deleteProduct);
+router.get('/user/:id',( res: Response, req: Request) => {
+    res.json({
+        msg: 'TODO: obtener todos los productos por usuario'
+    });
+});
 
 
 

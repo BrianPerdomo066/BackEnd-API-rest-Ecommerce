@@ -38,7 +38,7 @@ const loginUser = async ( user: Auth) => {
     
 
     if( ! isValidPassword ) {
-        return 'WRONG_PASSWORD';
+        return 'WRONG_PASSWORD';       // TODO: no me genera el token
     }
 
     const JWT_SECRET = process.env.JWT_SECRET_KET || '0tr4-cl4v3-s3cr3t4';

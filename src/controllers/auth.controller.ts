@@ -18,7 +18,7 @@ const register = async (req: Request, res: Response) => {
     }
 
     const response = await registerNewUser( user );
-    res.json ( response );
+     res.json ( response );
 }
 
 

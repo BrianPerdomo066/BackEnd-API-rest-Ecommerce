@@ -5,5 +5,6 @@ export default interface product {
     quantity: number;
     ranking: number;
     categoty: string;
-    deliverydate: Date;
+    userId: number;
+    deliverydate: Date
 }
